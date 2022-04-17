@@ -120,21 +120,9 @@ describe('Central de Atendimento ao Cliente TAT', function () {
             })
     })
 
-    it('encontra o gato que esta escondido', function () {
-        cy.get('#cat')
+    it.only('encontra o gato que esta escondido', function () {
+        cy.get('#contains')
             .invoke('show')
-            .should('be.visible')
-    })
-
-    it('verifica que a política de privacidade abre em outra aba sem a necessidade de um clique', function () {
-        cy.get('#privacy a').should('have.attr', 'target', '_blank')
-    })
-
-    it.only('acessa a página de política de privacidade removendo o target e então clicando no link', function () {
-        cy.get('#privacy a')
-            .invoke('removeAttr', 'target')
-            .click()
-        cy.contains('Talking About Testing')
             .should('be.visible')
     })
 })
